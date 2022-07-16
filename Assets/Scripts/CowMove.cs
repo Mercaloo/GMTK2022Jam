@@ -1,41 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CowMove : MonoBehaviour
 {
     private bool facingRight;
-    private int region;
+    private CoordinateSquare square;
+    private Vector2 targetPosition;
+    private NavMeshAgent agent;
     
+    [SerializeField] public static float minCooldownTime = 10;
+    [SerializeField] public static float maxCooldownTime = 20;
+    private float lastMove = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        
         facingRight = true;
-        if (Random.Range(0, 2) == 0)
-        {
-            Flip();
-        }
-    }
+        PointDirection(Random.Range(0, 2) == 0);
 
-    // Update is called once per frame
-    void Update()
-    {
+        lastMove = Random.Range(minCooldownTime, maxCooldownTime);
         
     }
 
-    private void Flip()
+    // Update is called once per frame
+    void FixedUpdate()
     {
-        facingRight = !facingRight;
-        transform.Rotate(0, 180, 0);
-    }
-    
-    public void SetRegion(int region)
-    {
-        this.region = region;
+        lastMove += Time.fixedDeltaTime;
+        if(lastMove > maxCooldownTime)
+        {
+            chooseNewPosition();
+            lastMove = minCooldownTime + Random.Range(0, maxCooldownTime - minCooldownTime);
+        }
     }
 
-    public int GetRegion()
+    private void PointDirection(bool right)
     {
-        return region;
+        if (facingRight != right)
+        {
+            facingRight = !facingRight;
+            transform.Rotate(0, 180, 0);
+        }
     }
+    
+    public void SetCoordinateSquare(CoordinateSquare square)
+    {
+        this.square = square;
+    }
+
+    public CoordinateSquare GetCoordinateSquare()
+    {
+        return square;
+    }
+
+    private void chooseNewPosition()
+    {
+        targetPosition = square.RandomCoordinate();
+        agent.SetDestination(targetPosition);
+        PointDirection(targetPosition.x > transform.position.x);
+    }
+
+    
 }
