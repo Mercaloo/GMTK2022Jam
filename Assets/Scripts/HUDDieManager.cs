@@ -6,13 +6,15 @@ using UnityEngine;
 public class HUDDieManager : MonoBehaviour
 {
     // A list of all the possible die positions with equal frequencies
-    public static bool[][] positions;
+    public static bool[][] possiblePositions;
 
     // The time in seconds to wait before rolling again
     [SerializeField] public float timeBetweenRolls = 15f;
     private float timeSinceLastRoll = 0f;
     private int currentNumber;
     private bool[] currentPosition;
+
+    private bool[] displayedPos;
 
     [SerializeField] private GameObject[] spots;
 
@@ -30,7 +32,7 @@ public class HUDDieManager : MonoBehaviour
         bool[] pos_six_a   = { true,  true,  true,  false, false, false, true,  true,  true  };
         bool[] pos_six_b   = { true, false,  true,  true,  false,  true, true,  false, true  };
 
-        positions = new bool[][] { pos_one, pos_one, pos_two_a, pos_two_b, pos_three_a, pos_three_b, pos_four, pos_four, pos_five, pos_five, pos_six_a, pos_six_b };
+        possiblePositions = new bool[][] { pos_one, pos_one, pos_two_a, pos_two_b, pos_three_a, pos_three_b, pos_four, pos_four, pos_five, pos_five, pos_six_a, pos_six_b };
 
         Roll();
         
@@ -49,11 +51,12 @@ public class HUDDieManager : MonoBehaviour
 
     }
 
+    // Plays the animation to roll the die and rolls it
     IEnumerator RunRollDie()
     {
         for (int i = 0; i < 4; i++)
         {
-            Roll();
+            Roll(false);
             yield return new WaitForSeconds(0.25f);
             
         }
@@ -61,30 +64,39 @@ public class HUDDieManager : MonoBehaviour
         Roll();
     }
 
-    
-    private void Roll()
+    // Rolls the die
+    // If real is true, the program will set the object's variables.
+    // Otherwise, it'll make it look like it rolled without changing the values
+    // That way, the program doesn't spaz out for a second as the die rolling animation is playing
+    private void Roll(bool real = true)
     {
         bool[] newPos;
         do
         {
-            newPos = positions[UnityEngine.Random.Range(0, positions.Length)];
-        } while (newPos.Equals(currentPosition));
-
-        currentPosition = newPos;
-        currentNumber = 0;
+            newPos = possiblePositions[UnityEngine.Random.Range(0, possiblePositions.Length)];
+        } while (newPos.Equals(currentPosition) || newPos.Equals(displayedPos));
+        
+        int newNumber = 0;
         
         // Loop thru the list of dots and enable/disable them as needed
         // Also count the current number
         for(int i = 0; i < 9; i++)
         {
-            spots[i].GetComponent<SpriteRenderer>().enabled = currentPosition[i];
-            if (currentPosition[i])
+            spots[i].GetComponent<SpriteRenderer>().enabled = newPos[i];
+            if (newPos[i])
             {
-                currentNumber++;
+                newNumber++;
             }
         }
 
-        Debug.Log("New number: " + currentNumber);
+        displayedPos = newPos;
+        if (real)
+        {
+            currentPosition = newPos;
+            currentNumber = newNumber;
+        }
+
+        Debug.Log("New number: " + newNumber);
     }
 
     public float getTimeSinceLastRoll()
@@ -94,5 +106,15 @@ public class HUDDieManager : MonoBehaviour
 
     public float getTimeUntilNextRoll(){
         return timeBetweenRolls - timeSinceLastRoll;
+    }
+
+    public bool[] getCurrentPosition()
+    {
+        return currentPosition;
+    }
+
+    public int getCurrentNumber()
+    {
+        return currentNumber;
     }
 }
