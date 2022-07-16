@@ -60,7 +60,7 @@ public class FarmerMove : MonoBehaviour
 
         if(choosableCows.Count == 0)
         {
-            Debug.Log("No cows in the correct zone");
+            // Debug.Log("No cows in the correct zone");
             // TODO: Do question mark animation and stand around
             currentCow = null;
         }
@@ -74,5 +74,15 @@ public class FarmerMove : MonoBehaviour
             Debug.Log("New cow!");
         }
 
+    }
+
+    public void setCowSpawner(GameObject spawner)
+    {
+        cowSpawner = spawner;
+    }
+
+    public void setDieManager(GameObject dieManager)
+    {
+        dieManagerObject = dieManager;
     }
 }

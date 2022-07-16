@@ -138,8 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd69b887becb0d46ad7fa7eda13b7f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 4103212000446427487, guid: 82b935d8695a874419156f4bfe64188d, type: 3}
+  scoreManager: {fileID: 4361400460863401106, guid: c903fec30eb3f1148bb2be8906feef2c, type: 3}
   abduction: {fileID: 2804283600755959853, guid: 96627009adef34944bb9561de769ea90, type: 3}
+  abductionSound: {fileID: 164722146075117218, guid: fb7a3759fed0ae743a9c8e89a91b75ea, type: 3}
 --- !u!195 &-3652753949180349365
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class SpawnCows : MonoBehaviour
 
         squares = new CoordinateSquare[] { square1, square2, square3, square4, square5, square6, square7, square8, square9};
 
-        Debug.Log(farmers);
+        Debug.Log("Moo?");
     }
 
 
@@ -39,7 +39,7 @@ public class SpawnCows : MonoBehaviour
     public void SpawnSomeCows(HUDDieManager dieManager)
     {
 
-        // Debug.Log("Moo.");
+        Debug.Log("Moo.");
 
         int cowsLeftToSpawn = Random.Range(minCows, maxCows + 1);
         
