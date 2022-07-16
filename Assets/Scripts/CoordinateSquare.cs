@@ -21,4 +21,9 @@ public class CoordinateSquare
     {
         return new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
     }
+
+    public int getRegionNumber()
+    {
+        return regionNumber;
+    }
 }

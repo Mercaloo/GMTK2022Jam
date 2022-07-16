@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SpawnCows : MonoBehaviour
 {
-[SerializeField] GameObject cow;
+    [SerializeField] GameObject cow;
     [SerializeField] int minCows = 6;
     [SerializeField] int maxCows = 20;
+    public List<GameObject> farmers = new List<GameObject>();
 
 
     int zoneWidth = 6;
@@ -15,8 +16,6 @@ public class SpawnCows : MonoBehaviour
 
     private void Start()
     {
-        
-
         CoordinateSquare square1 = new CoordinateSquare(-zoneWidth * 3 / 2 - 1, -zoneWidth     / 2 - 1,  zoneWidth * 3 / 2 + 1,  zoneWidth     / 2 + 1, 1);
         CoordinateSquare square2 = new CoordinateSquare(-zoneWidth     / 2,  zoneWidth     / 2,  zoneWidth * 3 / 2 + 1,  zoneWidth     / 2 + 1, 2);
         CoordinateSquare square3 = new CoordinateSquare( zoneWidth     / 2 + 1,  zoneWidth * 3 / 2 + 1,  zoneWidth * 3 / 2 + 1,  zoneWidth     / 2 + 1, 3);
@@ -29,7 +28,7 @@ public class SpawnCows : MonoBehaviour
 
         squares = new CoordinateSquare[] { square1, square2, square3, square4, square5, square6, square7, square8, square9};
 
-
+        Debug.Log(farmers);
     }
 
 
@@ -39,7 +38,7 @@ public class SpawnCows : MonoBehaviour
     public void SpawnSomeCows(HUDDieManager dieManager)
     {
 
-        Debug.Log("Moo.");
+        // Debug.Log("Moo.");
 
         int cowsLeftToSpawn = Random.Range(minCows, maxCows + 1);
         
@@ -65,6 +64,13 @@ public class SpawnCows : MonoBehaviour
             SpawnCowInRegion(regionToSpawn);
 
         }
+
+        // Make the farmers start targeting cows
+        foreach (GameObject farmer in farmers)
+        {
+            farmer.GetComponent<FarmerMove>().ChooseNewTargetCow();
+        }
+
     }
 
 
