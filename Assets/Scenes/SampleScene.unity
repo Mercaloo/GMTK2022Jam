@@ -3914,6 +3914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 600753784}
   - component: {fileID: 600753785}
+  - component: {fileID: 600753786}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3957,6 +3958,18 @@ MonoBehaviour:
   cowSpawner: {fileID: 382956002}
   dieManager: {fileID: 815041632}
   enemySpawnLocation: {x: 7, y: 0}
+--- !u!114 &600753786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600753783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d1b8331728ad8469ba7ae6bb56cd40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &625371334
 GameObject:
   m_ObjectHideFlags: 0
