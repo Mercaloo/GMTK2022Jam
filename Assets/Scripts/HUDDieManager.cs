@@ -16,7 +16,9 @@ public class HUDDieManager : MonoBehaviour
 
     private bool[] displayedPos;
 
+    [SerializeField] private GameObject CowSpawner;
     [SerializeField] private GameObject[] spots;
+
 
 
     // Start is called before the first frame update
@@ -33,9 +35,23 @@ public class HUDDieManager : MonoBehaviour
         bool[] pos_six_b   = { true, false,  true,  true,  false,  true, true,  false, true  };
 
         possiblePositions = new bool[][] { pos_one, pos_one, pos_two_a, pos_two_b, pos_three_a, pos_three_b, pos_four, pos_four, pos_five, pos_five, pos_six_a, pos_six_b };
-
-        Roll();
         
+        /*
+        bool[] pos_one_alt   = { true, false, false, false, false, false, false, false, false };
+        bool[] pos_two_alt   = { false, true, false, false, false, false, false, false, false };
+        bool[] pos_three_alt = { false, false, true, false, false, false, false, false, false };
+        bool[] pos_four_alt  = { false, false, false, true, false, false, false, false, false };
+        bool[] pos_five_alt  = { false, false, false, false, true, false, false, false, false };
+        bool[] pos_six_alt   = { false, false, false, false, false, true, false, false, false };
+        bool[] pos_seven_alt = { false, false, false, false, false, false, true, false, false };
+        bool[] pos_eight_alt = { false, false, false, false, false, false, false, true, false };
+        bool[] pos_nine_alt  = { false, false, false, false, false, false, false, false, true };
+
+        possiblePositions = new bool[][] { pos_one_alt, pos_one_alt, pos_two_alt, pos_two_alt, pos_three_alt, pos_three_alt, pos_four_alt, pos_four_alt, pos_five_alt, pos_five_alt, pos_six_alt, pos_six_alt, pos_seven_alt, pos_seven_alt, pos_eight_alt, pos_eight_alt, pos_nine_alt, pos_nine_alt };
+        */
+        
+        Roll();
+        CowSpawner.GetComponent<SpawnCows>().SpawnSomeCows(this);
     }
 
     // Update is called once per frame
@@ -62,6 +78,7 @@ public class HUDDieManager : MonoBehaviour
         }
 
         Roll();
+        CowSpawner.GetComponent<SpawnCows>().SpawnSomeCows(this);
     }
 
     // Rolls the die
@@ -96,24 +113,24 @@ public class HUDDieManager : MonoBehaviour
             currentNumber = newNumber;
         }
 
-        Debug.Log("New number: " + newNumber);
+        // Debug.Log("New number: " + newNumber);
     }
 
-    public float getTimeSinceLastRoll()
+    public float GetTimeSinceLastRoll()
     {
         return timeSinceLastRoll;
     }
 
-    public float getTimeUntilNextRoll(){
+    public float GetTimeUntilNextRoll(){
         return timeBetweenRolls - timeSinceLastRoll;
     }
 
-    public bool[] getCurrentPosition()
+    public bool[] GetCurrentPosition()
     {
         return currentPosition;
     }
 
-    public int getCurrentNumber()
+    public int GetCurrentNumber()
     {
         return currentNumber;
     }
