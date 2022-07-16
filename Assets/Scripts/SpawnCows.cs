@@ -10,8 +10,8 @@ public class SpawnCows : MonoBehaviour
     public List<GameObject> farmers = new List<GameObject>();
 
 
-    [SerializeField] static readonly int ZONE_WIDTH = 6;
-    [SerializeField] static readonly int BORDER_WIDTH = 1;
+    [SerializeField] int ZONE_WIDTH = 12;
+    [SerializeField] int BORDER_WIDTH = 1;
     
     CoordinateSquare[] squares;
 
