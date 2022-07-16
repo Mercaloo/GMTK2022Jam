@@ -19,36 +19,42 @@ public class HUDDieManager : MonoBehaviour
     [SerializeField] private GameObject CowSpawner;
     [SerializeField] private GameObject[] spots;
 
+    [SerializeField] private bool useTestDie;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        bool[] pos_one     = { false, false, false, false, true,  false, false, false, false };
-        bool[] pos_two_a   = { true,  false, false, false, false, false, false, false, true  };
-        bool[] pos_two_b   = { false, false, true,  false, false, false, true,  false, false };
-        bool[] pos_three_a = { true,  false, false, false, true,  false, false, false, true  };
-        bool[] pos_three_b = { false, false, true,  false, true,  false, true,  false, false };
-        bool[] pos_four    = { true,  false, true,  false, false, false, true,  false, true  };
-        bool[] pos_five    = { true,  false, true,  false, true,  false, true,  false, true  };
-        bool[] pos_six_a   = { true,  true,  true,  false, false, false, true,  true,  true  };
-        bool[] pos_six_b   = { true, false,  true,  true,  false,  true, true,  false, true  };
 
-        possiblePositions = new bool[][] { pos_one, pos_one, pos_two_a, pos_two_b, pos_three_a, pos_three_b, pos_four, pos_four, pos_five, pos_five, pos_six_a, pos_six_b };
-        
-        /*
-        bool[] pos_one_alt   = { true, false, false, false, false, false, false, false, false };
-        bool[] pos_two_alt   = { false, true, false, false, false, false, false, false, false };
-        bool[] pos_three_alt = { false, false, true, false, false, false, false, false, false };
-        bool[] pos_four_alt  = { false, false, false, true, false, false, false, false, false };
-        bool[] pos_five_alt  = { false, false, false, false, true, false, false, false, false };
-        bool[] pos_six_alt   = { false, false, false, false, false, true, false, false, false };
-        bool[] pos_seven_alt = { false, false, false, false, false, false, true, false, false };
-        bool[] pos_eight_alt = { false, false, false, false, false, false, false, true, false };
-        bool[] pos_nine_alt  = { false, false, false, false, false, false, false, false, true };
+        if (!useTestDie)
+        {
+            bool[] pos_one = { false, false, false, false, true, false, false, false, false };
+            bool[] pos_two_a = { true, false, false, false, false, false, false, false, true };
+            bool[] pos_two_b = { false, false, true, false, false, false, true, false, false };
+            bool[] pos_three_a = { true, false, false, false, true, false, false, false, true };
+            bool[] pos_three_b = { false, false, true, false, true, false, true, false, false };
+            bool[] pos_four = { true, false, true, false, false, false, true, false, true };
+            bool[] pos_five = { true, false, true, false, true, false, true, false, true };
+            bool[] pos_six_a = { true, true, true, false, false, false, true, true, true };
+            bool[] pos_six_b = { true, false, true, true, false, true, true, false, true };
 
-        possiblePositions = new bool[][] { pos_one_alt, pos_one_alt, pos_two_alt, pos_two_alt, pos_three_alt, pos_three_alt, pos_four_alt, pos_four_alt, pos_five_alt, pos_five_alt, pos_six_alt, pos_six_alt, pos_seven_alt, pos_seven_alt, pos_eight_alt, pos_eight_alt, pos_nine_alt, pos_nine_alt };
-        */
+            possiblePositions = new bool[][] { pos_one, pos_one, pos_two_a, pos_two_b, pos_three_a, pos_three_b, pos_four, pos_four, pos_five, pos_five, pos_six_a, pos_six_b };
+        }
+        else
+        {
+            bool[] pos_one_alt = { true, false, false, false, false, false, false, false, false };
+            bool[] pos_two_alt = { false, true, false, false, false, false, false, false, false };
+            bool[] pos_three_alt = { false, false, true, false, false, false, false, false, false };
+            bool[] pos_four_alt = { false, false, false, true, false, false, false, false, false };
+            bool[] pos_five_alt = { false, false, false, false, true, false, false, false, false };
+            bool[] pos_six_alt = { false, false, false, false, false, true, false, false, false };
+            bool[] pos_seven_alt = { false, false, false, false, false, false, true, false, false };
+            bool[] pos_eight_alt = { false, false, false, false, false, false, false, true, false };
+            bool[] pos_nine_alt = { false, false, false, false, false, false, false, false, true };
+
+            possiblePositions = new bool[][] { pos_one_alt, pos_one_alt, pos_two_alt, pos_two_alt, pos_three_alt, pos_three_alt, pos_four_alt, pos_four_alt, pos_five_alt, pos_five_alt, pos_six_alt, pos_six_alt, pos_seven_alt, pos_seven_alt, pos_eight_alt, pos_eight_alt, pos_nine_alt, pos_nine_alt };
+        }
         
         Roll();
         // CowSpawner.GetComponent<SpawnCows>().SpawnSomeCows(this);
