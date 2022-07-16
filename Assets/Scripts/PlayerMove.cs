@@ -27,40 +27,36 @@ public class PlayerMove : MonoBehaviour
 
         // Get relative positions
         Vector2 mouseScreenPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        
+
         Vector3 tempVector3 = worldCamera.WorldToScreenPoint(transform.position);
         Vector2 playerScreenPos = new Vector2(tempVector3.x, tempVector3.y);
 
         Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
-        
-        
+
+
 
         //Debug.Log("Mouse:   " + mouseScreenPos);
         //Debug.Log("Current: " + screenCenter);
         Vector2 posDifference;
-        
+
         // Lets you choose the control style
         if (useScreenCenter)
         {
-            posDifference  = mouseScreenPos - screenCenter;
+            posDifference = mouseScreenPos - screenCenter;
         }
         else
         {
             posDifference = mouseScreenPos - playerScreenPos;
         }
-        
+
         //Debug.Log("Diff: " + posDifference);
-        
+
         Vector2 forceToAdd = posDifference / slowness;
 
         //Debug.Log("Add: " + forceToAdd);
-        
+
         // Apply force from the mouse's movement
         GetComponent<Rigidbody2D>().AddForce(forceToAdd);
-
-        //Debugging scripts
-        Debug();      
-
 
         //Check if the player is on the platform
         onPlatform = GetComponent<Collider2D>().bounds.Intersects(Ground.GetComponent<BoxCollider2D>().bounds);
@@ -69,28 +65,8 @@ public class PlayerMove : MonoBehaviour
         {
             getBackOnPlatform();
         }
-
-        
-
-
     }
-
-    private void Debug()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            outOfBoundsReturnForceMultiplier++;
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            outOfBoundsReturnForceMultiplier--;
-        }
-    }
-
+    
     private void getBackOnPlatform()
     {
         // Get the character's position in the world and it's position relative to the center of he world
