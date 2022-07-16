@@ -85,9 +85,6 @@ public class SpawnCows : MonoBehaviour
 
     void SpawnCowInRegion(int region)
     {
-
         Instantiate(cow, squares[region - 1].RandomCoordinate(), Quaternion.identity);
-
-        Debug.Log("Spawned cow in region " + region);
     }
 }

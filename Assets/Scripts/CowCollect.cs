@@ -18,6 +18,7 @@ public class CowCollect : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Hi");
         if (collision.gameObject.tag == "Player")
         {
             Destroy(collision.gameObject);

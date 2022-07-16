@@ -51,7 +51,7 @@ public class HUDDieManager : MonoBehaviour
         */
         
         Roll();
-        CowSpawner.GetComponent<SpawnCows>().SpawnSomeCows(this);
+        // CowSpawner.GetComponent<SpawnCows>().SpawnSomeCows(this);
     }
 
     // Update is called once per frame
