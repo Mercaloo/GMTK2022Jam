@@ -71,7 +71,7 @@ public class FarmerMove : MonoBehaviour
             currentCow = choosableCows[randomCow];
             targetPosition = currentCow.transform.position;
             agent.SetDestination(targetPosition);
-            Debug.Log("New cow!");
+            // Debug.Log("New cow!");
         }
 
     }
