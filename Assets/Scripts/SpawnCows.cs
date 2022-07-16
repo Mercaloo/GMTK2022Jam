@@ -85,6 +85,11 @@ public class SpawnCows : MonoBehaviour
 
     void SpawnCowInRegion(int region)
     {
-        Instantiate(cow, squares[region - 1].RandomCoordinate(), Quaternion.identity);
+        GameObject newCow = Instantiate(cow, squares[region - 1].RandomCoordinate(), Quaternion.identity);
+        newCow.GetComponent<CowMove>().SetRegion(region);
+    }
+
+    public GameObject[] GetListOfCows() {
+        return GameObject.FindGameObjectsWithTag("Cow");
     }
 }

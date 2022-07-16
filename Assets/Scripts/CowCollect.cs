@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CowCollect : MonoBehaviour
 {
+    [SerializeField] GameObject scoreManager;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +18,13 @@ public class CowCollect : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Hi");
-        if (collision.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
+            scoreManager.GetComponent<ScoreManager>().AddPoints(1);
+            Destroy(gameObject);
         }
     }
 }

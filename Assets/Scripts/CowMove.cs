@@ -5,7 +5,7 @@ using UnityEngine;
 public class CowMove : MonoBehaviour
 {
     private bool facingRight;
-
+    private int region;
     
     // Start is called before the first frame update
     void Start()
@@ -27,5 +27,15 @@ public class CowMove : MonoBehaviour
     {
         facingRight = !facingRight;
         transform.Rotate(0, 180, 0);
+    }
+    
+    public void SetRegion(int region)
+    {
+        this.region = region;
+    }
+
+    public int GetRegion()
+    {
+        return region;
     }
 }
