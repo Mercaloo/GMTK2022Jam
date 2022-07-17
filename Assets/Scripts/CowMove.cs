@@ -25,7 +25,7 @@ public class CowMove : MonoBehaviour
         facingRight = true;
         // PointDirection(Random.Range(0, 2) == 0);
 
-        lastMove = Random.Range(minCooldownTime, maxCooldownTime);
+        lastMove = Random.Range(0, maxCooldownTime - minCooldownTime);
 
         anim = GetComponent<Animator>();
         
