@@ -57,8 +57,8 @@ public class CowMove : MonoBehaviour
 
         if(anim.GetBool("Walk")){
 
-            anim.SetFloat("x", xpos);
-            anim.SetFloat("y", ypos);
+            anim.SetFloat("x", Mathf.Round(xpos));
+            anim.SetFloat("y", Mathf.Round(ypos));
         }
        
     }

@@ -11,6 +11,7 @@ public class FarmerMove : MonoBehaviour
     private GameObject currentCow;
     private Vector2 targetPosition;
     private NavMeshAgent agent;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,8 @@ public class FarmerMove : MonoBehaviour
         agent.updateUpAxis = false;
         ChooseNewTargetCow();
         cowSpawner.GetComponent<SpawnCows>().farmers.Add(gameObject);
+
+        anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -29,6 +32,25 @@ public class FarmerMove : MonoBehaviour
         {
             ChooseNewTargetCow();
         }
+
+        float xpos = GetXSpeed();
+        float ypos = GetYSpeed();
+
+        if(xpos == 0 && ypos == 0){
+            anim.SetBool("Walk", false);
+        }
+
+        if(xpos != 0 && ypos != 0){
+            anim.SetBool("Walk", true);
+        }
+
+
+        if(anim.GetBool("Walk")){
+
+            anim.SetFloat("x", Mathf.Round(xpos));
+            anim.SetFloat("y", Mathf.Round(ypos));
+        }
+
     }
 
     public void ChooseNewTargetCow()
@@ -84,5 +106,19 @@ public class FarmerMove : MonoBehaviour
     public void setDieManager(GameObject dieManager)
     {
         dieManagerObject = dieManager;
+    }
+
+    
+    public float GetXSpeed()
+    {
+        Debug.Log(agent.velocity.x);
+        return agent.velocity.x;
+        
+    }
+
+    public float GetYSpeed()
+    {
+        Debug.Log(agent.velocity.y);
+        return agent.velocity.y;
     }
 }
