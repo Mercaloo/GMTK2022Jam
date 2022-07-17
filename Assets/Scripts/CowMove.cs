@@ -9,6 +9,7 @@ public class CowMove : MonoBehaviour
     private CoordinateSquare square;
     private Vector2 targetPosition;
     private NavMeshAgent agent;
+    private Animator anim;
     
     [SerializeField] public static float minCooldownTime = 10;
     [SerializeField] public static float maxCooldownTime = 20;
@@ -25,6 +26,8 @@ public class CowMove : MonoBehaviour
         // PointDirection(Random.Range(0, 2) == 0);
 
         lastMove = Random.Range(minCooldownTime, maxCooldownTime);
+
+        anim = GetComponent<Animator>();
         
     }
 
@@ -36,6 +39,12 @@ public class CowMove : MonoBehaviour
         {
             chooseNewPosition();
             lastMove = minCooldownTime + Random.Range(0, maxCooldownTime - minCooldownTime);
+            anim.SetBool("Walk", true);
+            anim.SetFloat("x", GetXSpeed());
+            anim.SetFloat("y", GetYSpeed());
+        }
+        else{
+            anim.SetBool("Walk", false);
         }
     }
 
@@ -67,11 +76,14 @@ public class CowMove : MonoBehaviour
 
     public float GetXSpeed()
     {
+        Debug.Log(agent.velocity.x);
         return agent.velocity.x;
+        
     }
 
     public float GetYSpeed()
     {
+        Debug.Log(agent.velocity.y);
         return agent.velocity.y;
     }
 
