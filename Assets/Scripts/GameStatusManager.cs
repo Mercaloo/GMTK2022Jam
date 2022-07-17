@@ -45,12 +45,14 @@ public class GameStatusManager : MonoBehaviour
             {
                 TogglePause();
             }
-            else
-            {
-                // Restart the game
-                Time.timeScale = 1;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+            
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Restart the game
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
