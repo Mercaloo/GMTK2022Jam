@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class SpawnCows : MonoBehaviour
 {
-[SerializeField] GameObject cow;
+    [SerializeField] GameObject cow;
     [SerializeField] int minCows = 6;
     [SerializeField] int maxCows = 20;
+    public List<GameObject> farmers = new List<GameObject>();
 
 
-    int zoneWidth = 6;
+    [SerializeField] int ZONE_WIDTH = 12;
+    [SerializeField] int BORDER_WIDTH = 1;
     
     CoordinateSquare[] squares;
 
     private void Start()
     {
-        
-
-        CoordinateSquare square1 = new CoordinateSquare(-zoneWidth * 3 / 2 - 1, -zoneWidth     / 2 - 1,  zoneWidth * 3 / 2 + 1,  zoneWidth     / 2 + 1, 1);
-        CoordinateSquare square2 = new CoordinateSquare(-zoneWidth     / 2,  zoneWidth     / 2,  zoneWidth * 3 / 2 + 1,  zoneWidth     / 2 + 1, 2);
-        CoordinateSquare square3 = new CoordinateSquare( zoneWidth     / 2 + 1,  zoneWidth * 3 / 2 + 1,  zoneWidth * 3 / 2 + 1,  zoneWidth     / 2 + 1, 3);
-        CoordinateSquare square4 = new CoordinateSquare(-zoneWidth * 3 / 2 - 1, -zoneWidth     / 2 - 1,  zoneWidth / 2,     -zoneWidth     / 2, 4);
-        CoordinateSquare square5 = new CoordinateSquare(-zoneWidth / 2,      zoneWidth     / 2,      zoneWidth     / 2, -zoneWidth / 2, 5);
-        CoordinateSquare square6 = new CoordinateSquare( zoneWidth / 2 + 1,      zoneWidth * 3 / 2 + 1,  zoneWidth / 2,     -zoneWidth     / 2, 6);
-        CoordinateSquare square7 = new CoordinateSquare(-zoneWidth * 3 / 2 - 1, -zoneWidth     / 2 - 1, -zoneWidth / 2 - 1,     -zoneWidth * 3 / 2 - 1, 7);
-        CoordinateSquare square8 = new CoordinateSquare(-zoneWidth / 2,      zoneWidth     / 2, -zoneWidth / 2 - 1,     -zoneWidth * 3 / 2 - 1, 8);
-        CoordinateSquare square9 = new CoordinateSquare( zoneWidth / 2 + 1,      zoneWidth * 3 / 2 + 1, -zoneWidth / 2 - 1,     -zoneWidth * 3 / 2 - 1, 9);
+        CoordinateSquare square1 = new CoordinateSquare(-ZONE_WIDTH * 3 / 2 - BORDER_WIDTH, -ZONE_WIDTH     / 2 - BORDER_WIDTH,  ZONE_WIDTH * 3 / 2 + BORDER_WIDTH,  ZONE_WIDTH     / 2 + BORDER_WIDTH, 1);
+        CoordinateSquare square2 = new CoordinateSquare(-ZONE_WIDTH     / 2,  ZONE_WIDTH     / 2,  ZONE_WIDTH * 3 / 2 + BORDER_WIDTH,  ZONE_WIDTH     / 2 + BORDER_WIDTH, 2);
+        CoordinateSquare square3 = new CoordinateSquare( ZONE_WIDTH     / 2 + BORDER_WIDTH,  ZONE_WIDTH * 3 / 2 + BORDER_WIDTH,  ZONE_WIDTH * 3 / 2 + BORDER_WIDTH,  ZONE_WIDTH     / 2 + BORDER_WIDTH, 3);
+        CoordinateSquare square4 = new CoordinateSquare(-ZONE_WIDTH * 3 / 2 - BORDER_WIDTH, -ZONE_WIDTH     / 2 - BORDER_WIDTH,  ZONE_WIDTH / 2,     -ZONE_WIDTH     / 2, 4);
+        CoordinateSquare square5 = new CoordinateSquare(-ZONE_WIDTH / 2,      ZONE_WIDTH     / 2,      ZONE_WIDTH     / 2, -ZONE_WIDTH / 2, 5);
+        CoordinateSquare square6 = new CoordinateSquare( ZONE_WIDTH / 2 + BORDER_WIDTH,      ZONE_WIDTH * 3 / 2 + BORDER_WIDTH,  ZONE_WIDTH / 2,     -ZONE_WIDTH     / 2, 6);
+        CoordinateSquare square7 = new CoordinateSquare(-ZONE_WIDTH * 3 / 2 - BORDER_WIDTH, -ZONE_WIDTH     / 2 - BORDER_WIDTH, -ZONE_WIDTH / 2 - BORDER_WIDTH,     -ZONE_WIDTH * 3 / 2 - BORDER_WIDTH, 7);
+        CoordinateSquare square8 = new CoordinateSquare(-ZONE_WIDTH / 2,      ZONE_WIDTH     / 2, -ZONE_WIDTH / 2 - BORDER_WIDTH,     -ZONE_WIDTH * 3 / 2 - BORDER_WIDTH, 8);
+        CoordinateSquare square9 = new CoordinateSquare( ZONE_WIDTH / 2 + BORDER_WIDTH,      ZONE_WIDTH * 3 / 2 + BORDER_WIDTH, -ZONE_WIDTH / 2 - BORDER_WIDTH,     -ZONE_WIDTH * 3 / 2 - 1, 9);
 
         squares = new CoordinateSquare[] { square1, square2, square3, square4, square5, square6, square7, square8, square9};
 
-
+        Debug.Log("Moo?");
     }
 
 
@@ -65,6 +65,13 @@ public class SpawnCows : MonoBehaviour
             SpawnCowInRegion(regionToSpawn);
 
         }
+
+        // Make the farmers start targeting cows
+        foreach (GameObject farmer in farmers)
+        {
+            farmer.GetComponent<FarmerMove>().ChooseNewTargetCow();
+        }
+
     }
 
 
