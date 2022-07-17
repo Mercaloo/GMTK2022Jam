@@ -8,7 +8,7 @@ public class GameStatusManager : MonoBehaviour
     private bool gameOver = false;
     private bool gamePaused = false;
     [SerializeField] GameObject gameOverScreen;
-
+    [SerializeField] GameObject pauseButton;
     
     public void GameOver()
     {
@@ -24,6 +24,7 @@ public class GameStatusManager : MonoBehaviour
             gamePaused = !gamePaused;
         }
         Time.timeScale = gamePaused ? 0 : 1;
+        pauseButton.GetComponent<SpriteRenderer>().enabled = gamePaused;
     }
 
     public bool GameRunning()
