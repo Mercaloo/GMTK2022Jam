@@ -3708,8 +3708,8 @@ Canvas:
   m_GameObject: {fileID: 249162628}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -3717,7 +3717,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 196547051
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &249162632
@@ -9454,10 +9454,10 @@ RectTransform:
   m_Father: {fileID: 249162632}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 318, y: 191}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -98.640015, y: -31.600006}
+  m_SizeDelta: {x: 99.64, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &490557821
 MonoBehaviour:
