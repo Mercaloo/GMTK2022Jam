@@ -9663,6 +9663,7 @@ Transform:
   - {fileID: 363142604}
   - {fileID: 528197199}
   - {fileID: 382956003}
+  - {fileID: 2035247922}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19346,7 +19347,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1330345, y: 1}
+    m_SensorSize: {x: 2.1357467, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -19453,6 +19454,52 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 38, y: 38}
   m_EdgeRadius: 0
+--- !u!1 &2035247920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2035247922}
+  - component: {fileID: 2035247921}
+  m_Layer: 0
+  m_Name: Flower Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2035247921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035247920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1d74accf835c32418edd09e030861f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cowSpawner: {fileID: 382956002}
+  flowerEffect: {fileID: 317308638886818986, guid: cf065d3e15cce5743a528c8e282663f2, type: 3}
+--- !u!4 &2035247922
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035247920}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600753784}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2147183572
 GameObject:
   m_ObjectHideFlags: 3
@@ -19657,5 +19704,33 @@ PrefabInstance:
       propertyPath: CowSpawner
       value: 
       objectReference: {fileID: 382956002}
+    - target: {fileID: 4911939904473314927, guid: 4af5aec6f175fc945b0c7439aef2dc99, type: 3}
+      propertyPath: cowSpawner
+      value: 
+      objectReference: {fileID: 382956002}
+    - target: {fileID: 4911939904473314927, guid: 4af5aec6f175fc945b0c7439aef2dc99, type: 3}
+      propertyPath: flowerManager
+      value: 
+      objectReference: {fileID: 2035247920}
+    - target: {fileID: 4911939904498806316, guid: 4af5aec6f175fc945b0c7439aef2dc99, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911939904722048632, guid: 4af5aec6f175fc945b0c7439aef2dc99, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911939905639533049, guid: 4af5aec6f175fc945b0c7439aef2dc99, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911939905663762858, guid: 4af5aec6f175fc945b0c7439aef2dc99, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911939905908973110, guid: 4af5aec6f175fc945b0c7439aef2dc99, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4af5aec6f175fc945b0c7439aef2dc99, type: 3}

@@ -70,7 +70,7 @@ public class FarmerMove : MonoBehaviour
                 testCow.
                 GetComponent<CowMove>().
                 GetCoordinateSquare().
-                getRegionNumber() - 1]
+                GetRegionNumber() - 1]
                 
                 && !testCow.
                 Equals(

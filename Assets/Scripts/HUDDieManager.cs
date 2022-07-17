@@ -16,7 +16,8 @@ public class HUDDieManager : MonoBehaviour
 
     private bool[] displayedPos;
 
-    [SerializeField] private GameObject CowSpawner;
+    [SerializeField] private GameObject flowerManager;
+    [SerializeField] private GameObject cowSpawner;
     [SerializeField] private GameObject[] spots;
 
     [SerializeField] private bool useTestDie;
@@ -56,7 +57,7 @@ public class HUDDieManager : MonoBehaviour
             possiblePositions = new bool[][] { pos_one_alt, pos_one_alt, pos_two_alt, pos_two_alt, pos_three_alt, pos_three_alt, pos_four_alt, pos_four_alt, pos_five_alt, pos_five_alt, pos_six_alt, pos_six_alt, pos_seven_alt, pos_seven_alt, pos_eight_alt, pos_eight_alt, pos_nine_alt, pos_nine_alt };
         }
         
-        Roll();
+        // Roll();
         // CowSpawner.GetComponent<SpawnCows>().SpawnSomeCows(this);
     }
 
@@ -84,7 +85,7 @@ public class HUDDieManager : MonoBehaviour
         }
 
         Roll();
-        CowSpawner.GetComponent<SpawnCows>().SpawnSomeCows(this);
+        cowSpawner.GetComponent<SpawnCows>().SpawnSomeCows(this);
     }
 
     // Rolls the die
@@ -106,9 +107,10 @@ public class HUDDieManager : MonoBehaviour
         for(int i = 0; i < 9; i++)
         {
             spots[i].GetComponent<SpriteRenderer>().enabled = newPos[i];
-            if (newPos[i])
+            if (real && newPos[i])
             {
                 newNumber++;
+                flowerManager.GetComponent<FlowerSpawner>().SpawnFlowers(i + 1);
             }
         }
 

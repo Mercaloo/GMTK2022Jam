@@ -84,4 +84,9 @@ public class SpawnCows : MonoBehaviour
     public GameObject[] GetListOfCows() {
         return GameObject.FindGameObjectsWithTag("Cow");
     }
+
+    public CoordinateSquare[] getGrid()
+    {
+        return squares;
+    }
 }
