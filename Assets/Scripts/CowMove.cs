@@ -22,7 +22,7 @@ public class CowMove : MonoBehaviour
         agent.updateUpAxis = false;
         
         facingRight = true;
-        PointDirection(Random.Range(0, 2) == 0);
+        // PointDirection(Random.Range(0, 2) == 0);
 
         lastMove = Random.Range(minCooldownTime, maxCooldownTime);
         
@@ -62,8 +62,17 @@ public class CowMove : MonoBehaviour
     {
         targetPosition = square.RandomCoordinate();
         agent.SetDestination(targetPosition);
-        PointDirection(targetPosition.x > transform.position.x);
+        // PointDirection(targetPosition.x > transform.position.x);
     }
 
-    
+    public float GetXSpeed()
+    {
+        return agent.velocity.x;
+    }
+
+    public float GetYSpeed()
+    {
+        return agent.velocity.y;
+    }
+
 }
