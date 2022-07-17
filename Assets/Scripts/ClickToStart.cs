@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ClickToStart : MonoBehaviour
 {
+    private bool showingTutorial = false;
+    [SerializeField] GameObject tutorial;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +19,15 @@ public class ClickToStart : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("SampleScene");
+            if (!showingTutorial)
+            {
+                tutorial.GetComponent<SpriteRenderer>().enabled = true;
+                showingTutorial = true;
+            }
+            else
+            {
+                SceneManager.LoadScene("SampleScene");
+            }
         }
     }
 }
