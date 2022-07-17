@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77b5eb95b93d9d42bfe8ada7ad44010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cowSpawner: {fileID: 7320441916082621602, guid: da8d8e3ebd1c59b4abc8d044f7177a38, type: 3}
+  cowSpawner: {fileID: 164722146075117218, guid: fb7a3759fed0ae743a9c8e89a91b75ea, type: 3}
   dieManagerObject: {fileID: 4911939904473314897, guid: 4af5aec6f175fc945b0c7439aef2dc99, type: 3}
 --- !u!195 &1368351340041142265
 NavMeshAgent:

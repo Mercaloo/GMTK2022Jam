@@ -31,6 +31,8 @@ public class CowMove : MonoBehaviour
         
     }
 
+
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -39,13 +41,26 @@ public class CowMove : MonoBehaviour
         {
             chooseNewPosition();
             lastMove = minCooldownTime + Random.Range(0, maxCooldownTime - minCooldownTime);
-            anim.SetBool("Walk", true);
-            anim.SetFloat("x", GetXSpeed());
-            anim.SetFloat("y", GetYSpeed());
+
         }
-        else{
+
+        float xpos = GetXSpeed();
+        float ypos = GetYSpeed();
+
+        if(xpos == 0 && ypos == 0){
             anim.SetBool("Walk", false);
         }
+
+        if(xpos != 0 && ypos != 0){
+            anim.SetBool("Walk", true);
+        }
+
+        if(anim.GetBool("Walk")){
+
+            anim.SetFloat("x", xpos);
+            anim.SetFloat("y", ypos);
+        }
+       
     }
 
     private void PointDirection(bool right)
