@@ -111,14 +111,14 @@ public class FarmerMove : MonoBehaviour
     
     public float GetXSpeed()
     {
-        Debug.Log(agent.velocity.x);
+        // Debug.Log(agent.velocity.x);
         return agent.velocity.x;
         
     }
 
     public float GetYSpeed()
     {
-        Debug.Log(agent.velocity.y);
+        // Debug.Log(agent.velocity.y);
         return agent.velocity.y;
     }
 }
