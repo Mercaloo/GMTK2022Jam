@@ -9539,7 +9539,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.007843138, g: 0.24705884, b: 0.24705884, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -9679,7 +9679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ebef64c662e7745a1f085bd89455c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnTimes: 0a0000003c0000007800000096000000b4000000d2000000f00000000e0100002c0100004a010000
+  enemySpawnCooldown: 30
   enemyPrefab: {fileID: 1368351340041142264, guid: 018d8bd09095185428dbdc22edf0715e, type: 3}
   cowSpawner: {fileID: 382956002}
   dieManager: {fileID: 815041632}
@@ -19347,7 +19347,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1357467, y: 1}
+    m_SensorSize: {x: 2.0555556, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
