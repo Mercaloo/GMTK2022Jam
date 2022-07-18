@@ -39,16 +39,12 @@ public class GameStatusManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !IsGameOver())
         {
-            if (!IsGameOver())
-            {
-                TogglePause();
-            }
-            
+            TogglePause();
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (IsGameOver() && Input.GetMouseButtonDown(0))
         {
             // Restart the game
             Time.timeScale = 1;

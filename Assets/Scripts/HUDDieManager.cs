@@ -13,7 +13,7 @@ public class HUDDieManager : MonoBehaviour
 
     // The time in seconds to wait before rolling again
     [SerializeField] public float timeBetweenRolls = 15f;
-    private float timeSinceLastRoll = 0f;
+    private float timeSinceLastRoll = 10f;
     private int rollCount = 0;
     private int currentNumber;
     private bool[] currentPosition;
