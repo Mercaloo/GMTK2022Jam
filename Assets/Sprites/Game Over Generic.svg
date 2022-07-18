@@ -108,10 +108,10 @@
        y="0"><tspan
          x="125.35156"
          y="714.49877"
-         id="tspan4505"><tspan
+         id="tspan4287"><tspan
            dx="0 17.472015 13.46402 22.439987 13.53598 6.2400055 18.744003 12.191986 13.53598"
            style="font-size:24px;text-align:center;text-anchor:middle"
-           id="tspan4503">Game Over</tspan></tspan></text>
+           id="tspan4285">Game Over</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-2.4376179,7.3947433)"
@@ -121,9 +121,9 @@
        y="0"><tspan
          x="197.68938"
          y="234.9532"
-         id="tspan4509"><tspan
+         id="tspan4291"><tspan
            style="text-align:center;text-anchor:middle"
-           id="tspan4507">Game Over</tspan></tspan></text>
+           id="tspan4289">Game Over</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.17179066,0.04603116,-0.04603116,0.17179066,29.880487,37.172512)"
@@ -131,19 +131,17 @@
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect3267);display:inline;fill:#ffffff;fill-opacity:1;stroke:none"><tspan
          x="143.73633"
          y="233.63329"
-         id="tspan4511">A farmer took your picture, thus revealing </tspan><tspan
+         id="tspan4293">A farmer took your picture, thus revealing </tspan><tspan
          x="143.73633"
          y="283.63329"
-         id="tspan4513">the existence of aliens to humanity.</tspan></text>
+         id="tspan4295">the existence of aliens to humanity.</tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(0.17785078,0,0,0.17785078,13.561322,92.240185)"
+       transform="matrix(0.17785078,0,0,0.17785078,56.135828,93.085299)"
        id="text3265-3"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect3267-8);display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
-       x="158.8"
-       y="0"><tspan
-         x="383.11962"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect3267-8);display:inline;fill:#ffffff;fill-opacity:1;stroke:none"><tspan
+         x="143.73633"
          y="233.63329"
-         id="tspan4515">Click to try again!</tspan></text>
+         id="tspan4297">Click to try again!</tspan></text>
   </g>
 </svg>
